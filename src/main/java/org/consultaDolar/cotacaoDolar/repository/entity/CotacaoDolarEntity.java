@@ -13,7 +13,7 @@ public class CotacaoDolarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "request_id")
-    private Integer id;
+    private Integer requestId;
 
     @Column(name = "request_timestamp")
     private Timestamp requestTimestamp;
