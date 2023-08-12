@@ -11,6 +11,7 @@ public class CotacaoDolar {
     @JsonIgnore
     private Integer requestId;
 
+    @JsonIgnore
     private Timestamp requestTimestamp;
 
     private String dataCotacao;
