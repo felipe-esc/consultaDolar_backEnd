@@ -1,8 +1,8 @@
 CREATE TABLE cotacaoDolar (
     request_id          SERIAL PRIMARY KEY,
-    timestamp           TEXT NOT NULL,
+    request_timestamp   TIMESTAMP,
     data_cotacao        TEXT,
-    cotacao_compra      TEXT,
-    cotacao_venda       TEXT,
-    data_hora_cotacao   TEXT
+    cotacao_compra      FLOAT,
+    cotacao_venda       FLOAT,
+    data_hora_cotacao   TIMESTAMP
 );
