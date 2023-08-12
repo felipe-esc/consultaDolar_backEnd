@@ -83,6 +83,11 @@
       <artifactId>lombok</artifactId>
       <version>1.18.22</version>
     </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>1.4.2.Final</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -138,6 +143,19 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler-plugin.version}</version>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>1.4.2.Final</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
       </plugin>
     </plugins>
   </build>
