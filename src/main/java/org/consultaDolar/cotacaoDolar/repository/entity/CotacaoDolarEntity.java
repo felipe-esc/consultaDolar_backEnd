@@ -28,5 +28,5 @@ public class CotacaoDolarEntity {
     private Double cotacaoVenda;
 
     @Column(name = "data_hora_cotacao")
-    private Timestamp dataHoraCotacao;
+    private String dataHoraCotacao;
 }

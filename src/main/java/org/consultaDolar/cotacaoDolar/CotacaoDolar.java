@@ -20,6 +20,6 @@ public class CotacaoDolar {
 
     private Double cotacaoVenda;
 
-    private Timestamp dataHoraCotacao;
+    private String dataHoraCotacao;
 
 }
