@@ -9,6 +9,9 @@ import org.consultaDolar.cotacaoDolar.CotacaoDolar;
 import org.consultaDolar.cotacaoDolar.CotacaoDolarMapper;
 import org.consultaDolar.cotacaoDolar.repository.CotacaoDolarRepository;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+
 @ApplicationScoped
 @AllArgsConstructor
 @Slf4j
@@ -21,6 +24,7 @@ public class CotacaoDolarService {
     @Transactional
     public void save(@NotNull CotacaoDolar cotacaoDolar) {
         log.info("Salvando cotacao:" + cotacaoDolar);
+
         cotacaoDolarRepository.persist(
                 cotacaoDolarMapper.toEntity(cotacaoDolar)
         );

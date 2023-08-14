@@ -1,10 +1,12 @@
 package org.consultaDolar.cotacaoDolar.resource;
 
+import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.consultaDolar.cotacaoDolar.CotacaoDolar;
+import org.consultaDolar.cotacaoDolar.gateway.CotacaoDolarGateway;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -13,7 +15,9 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.resteasy.reactive.RestQuery;
 
-@Path("/api/cotacaoDolarDia")
+import java.util.concurrent.CompletionStage;
+
+@Path("/api/cotacaoDolar")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Tag(name = "Cotação Dólar", description = "Consultas de cotação de dólar.")
@@ -21,7 +25,10 @@ import org.jboss.resteasy.reactive.RestQuery;
 @Slf4j
 public class CotacaoDolarResource {
 
+    private final CotacaoDolarGateway cotacaoDolarGateway;
+
     @GET
+    @Path("/cotacaoDolarDia")
     @APIResponse(
             responseCode = "200",
             description = "Consulta cotação do dólar no dia indicado.",
@@ -45,12 +52,11 @@ public class CotacaoDolarResource {
             description = "Bad Gateway",
             content = @Content(mediaType = MediaType.APPLICATION_JSON)
     )
-    public Response consultaDolarDia(
+    public Uni<CotacaoDolar> consultaDolarDia(
             @Parameter(name = "dataCotacao", required = true)
             @RestQuery(value = "dataCotacao") String dataCotacao
     ) {
-        log.info("teste");
-        return Response.ok(new CotacaoDolar()).build();
+        return cotacaoDolarGateway.consultaDolarDia(dataCotacao);
     }
 
 }
