@@ -1,6 +1,5 @@
 package org.consultaDolar.cotacaoDolar.resource;
 
-import jakarta.servlet.ServletContext;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
 import lombok.AllArgsConstructor;
@@ -14,7 +13,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.resteasy.reactive.RestQuery;
 
-@Path("/cotacaoDolarDia")
+@Path("/api/cotacaoDolarDia")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Tag(name = "Cotação Dólar", description = "Consultas de cotação de dólar.")
@@ -48,8 +47,9 @@ public class CotacaoDolarResource {
     )
     public Response consultaDolarDia(
             @Parameter(name = "dataCotacao", required = true)
-            @RestQuery(value = "dataCriacao") String dataCotacao
+            @RestQuery(value = "dataCotacao") String dataCotacao
     ) {
+        log.info("teste");
         return Response.ok(new CotacaoDolar()).build();
     }
 
