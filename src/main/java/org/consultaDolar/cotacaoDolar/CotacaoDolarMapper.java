@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper(componentModel = "cdi")
+@Mapper(componentModel = "jakarta")
 public interface CotacaoDolarMapper {
 
     List<CotacaoDolar> toDomainList(List<CotacaoDolarEntity> cotacaoDolarList);
