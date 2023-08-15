@@ -1,6 +1,7 @@
 package org.consultaDolar.cotacaoDolar.resource;
 
 import io.smallrye.mutiny.Uni;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
 import lombok.AllArgsConstructor;
@@ -52,6 +53,7 @@ public class CotacaoDolarResource {
             description = "Bad Gateway",
             content = @Content(mediaType = MediaType.APPLICATION_JSON)
     )
+    @Transactional
     public Uni<CotacaoDolar> consultaDolarDia(
             @Parameter(name = "dataCotacao", required = true)
             @RestQuery(value = "dataCotacao") String dataCotacao
