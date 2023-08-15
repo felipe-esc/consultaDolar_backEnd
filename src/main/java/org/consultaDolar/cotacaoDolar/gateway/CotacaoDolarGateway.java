@@ -38,14 +38,14 @@ public class CotacaoDolarGateway {
 
         return cotacaoDolarExternalService.consultaDolarDia(dataCotacao)
                 .onFailure().retry().atMost(3)
-                .onItem().transform(
+                .map(
                         (res) -> res.getValue()
                                 .stream().findFirst()
                                 .orElseThrow(NotFoundException::new)
 
                 )
                 .emitOn(Executors.newSingleThreadExecutor())
-                .onItem().invoke(
+                .invoke(
                         (res) -> {
                             res.setDataCotacao(dataCotacao);
                             res.setRequestTimestamp(reqTimestamp);
