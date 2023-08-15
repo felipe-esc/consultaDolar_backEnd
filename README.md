@@ -8,7 +8,9 @@ O principal objetivo do projeto é implementar um microsserviço simples que rec
 - Adicionar mappers para exceptions e erros na api
 - buscar as cotações salvas da api na camada do gateway diminuindo chamadas, possivelmente ganhando tempo.
 - adicionar cache às buscas na camada do gateway.
-- trabalhar melhor nas configurações da api, como por exemplo, adicionar validações dos parametros da request.
+- trabalhar melhor nas configurações da api, como por exemplo adicionar validações dos parametros da request.
 - adicionar módulo de busca para outras moedas e outras consultas ao Dólar (períodos por exemplo).
 - melhorar lógica de persistência das cotações evitando duplicações (necessária a remodelagem da tabela para manter o registro das requisições).
 - configurar health e métricas.
+- request filters (logging por exemplo).
+- exception mapper.
