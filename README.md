@@ -13,4 +13,3 @@ O principal objetivo do projeto é implementar um microsserviço simples que rec
 - melhorar lógica de persistência das cotações evitando duplicações (necessária a remodelagem da tabela para manter o registro das requisições).
 - configurar health e métricas.
 - request filters (logging por exemplo).
-- exception mapper.
